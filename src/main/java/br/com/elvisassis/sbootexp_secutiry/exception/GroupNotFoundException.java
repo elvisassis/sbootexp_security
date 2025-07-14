@@ -1,0 +1,1 @@
+package br.com.elvisassis.sbootexp_secutiry.exception;public class GroupNotFoundException extends RuntimeException {    public GroupNotFoundException(String message) {        super(message);    }}

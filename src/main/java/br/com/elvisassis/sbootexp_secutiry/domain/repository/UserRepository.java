@@ -1,0 +1,1 @@
+package br.com.elvisassis.sbootexp_secutiry.domain.repository;import br.com.elvisassis.sbootexp_secutiry.domain.entity.User;import br.com.elvisassis.sbootexp_secutiry.domain.entity.UserGroup;import org.springframework.data.jpa.repository.JpaRepository;import java.util.List;public interface UserRepository extends JpaRepository<User, String> {}

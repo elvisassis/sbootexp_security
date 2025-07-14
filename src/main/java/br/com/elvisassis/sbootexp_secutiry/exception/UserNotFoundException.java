@@ -1,0 +1,1 @@
+package br.com.elvisassis.sbootexp_secutiry.exception;public class UserNotFoundException extends RuntimeException {    public UserNotFoundException(String message) {        super(message);    }}

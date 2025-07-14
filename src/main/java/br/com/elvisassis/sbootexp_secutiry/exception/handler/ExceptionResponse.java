@@ -1,0 +1,1 @@
+package br.com.elvisassis.sbootexp_secutiry.exception.handler;import java.util.Date;public record ExceptionResponse(Date timeStamp, String message, String details) {}

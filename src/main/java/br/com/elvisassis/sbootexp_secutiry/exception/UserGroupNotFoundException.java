@@ -1,0 +1,1 @@
+package br.com.elvisassis.sbootexp_secutiry.exception;public class UserGroupNotFoundException extends RuntimeException {    public UserGroupNotFoundException(String message) {        super(message);    }}
