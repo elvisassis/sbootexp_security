@@ -87,4 +87,4 @@ Consolidar o conhecimento em segurança com Spring Boot através de:
 
 **Elvis Assis**  
 Engenheiro de Software em constante aprendizado  
-📫 [LinkedIn](https://www.linkedin.com/in/seu-perfil)
+📫 [LinkedIn](https://www.linkedin.com/in/elvis-assis)
