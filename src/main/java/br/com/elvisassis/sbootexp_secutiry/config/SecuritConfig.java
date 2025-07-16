@@ -2,6 +2,7 @@ package br.com.elvisassis.sbootexp_secutiry.config;
 
 import java.util.Arrays;
 
+import br.com.elvisassis.sbootexp_secutiry.domain.security.CustomAuthentication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
@@ -25,8 +26,9 @@ public class SecuritConfig {
 
 
     @Bean
-    public SecurityFilterChain securityFilterChain(SenhaMasterAuthenticationProvider senhaMasterAuthenticationProvider,
-                                                   HttpSecurity http,
+    public SecurityFilterChain securityFilterChain(HttpSecurity http,
+                                                   SenhaMasterAuthenticationProvider senhaMasterAuthenticationProvider,
+                                                   CustomAuthenticationProvider customAuthenticationProvider,
                                                    CustomFilter customFilter) throws Exception {
         http
                 .csrf(csrf -> csrf.disable())
@@ -35,6 +37,7 @@ public class SecuritConfig {
                         .anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults())
                 .authenticationProvider(senhaMasterAuthenticationProvider)
+                .authenticationProvider(customAuthenticationProvider)
                 .addFilterBefore(customFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
