@@ -1,3 +1,4 @@
+
 # Spring Boot Experting Security 🔐
 
 Projeto de estudo avançado com foco em autenticação e autorização utilizando Spring Boot e Spring Security.
@@ -55,36 +56,35 @@ Consolidar o conhecimento em segurança com Spring Boot através de:
    ```bash
    git clone https://github.com/seu-usuario/spring-boot-experting-security.git
    cd spring-boot-experting-security
+   ```
 
 2. Compile e rode:
    ```bash
    ./mvnw spring-boot:run
+   ```
 
 3. Acesse o Swagger:
-   ```bash
+   ```
    http://localhost:8080/swagger-ui/index.html
+   ```
 
-✅ Melhorias Futuras
-Validações de domínio (usuário duplicado, campos obrigatórios)
+## ✅ Melhorias Futuras
 
-Operações de update/delete
+- Validações de domínio (usuário duplicado, campos obrigatórios)
+- Operações de update/delete
+- Autenticação via OAuth2, OpenID Connect e JWT (Google, GitHub, LinkedIn)
+- Testes automatizados com JUnit e Mockito
+- Uso de containers (Docker) e CI/CD
 
-Autenticação via OAuth2, OpenID Connect e JWT (Google, GitHub, LinkedIn)
+## 📚 Aprendizados
 
-Testes automatizados com JUnit e Mockito
+- Criação de autenticação customizada com múltiplas fontes
+- Implementação de segurança baseada em roles com Spring Security
+- Estruturação clara e escalável para projetos seguros
+- Como utilizar filtros personalizados no Spring Security
 
-Uso de containers (Docker) e CI/CD
+## 🧠 Autor
 
-📚 Aprendizados
-Criação de autenticação customizada com múltiplas fontes
-
-Implementação de segurança baseada em roles com Spring Security
-
-Estruturação clara e escalável para projetos seguros
-
-Como utilizar filtros personalizados no Spring Security
-
-🧠 Autor
-Elvis Assis
-Engenheiro de Software em constante aprendizado
-📫 LinkedIn
+**Elvis Assis**  
+Engenheiro de Software em constante aprendizado  
+📫 [LinkedIn](https://www.linkedin.com/in/seu-perfil)
