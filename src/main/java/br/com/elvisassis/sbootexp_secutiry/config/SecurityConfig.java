@@ -2,7 +2,6 @@ package br.com.elvisassis.sbootexp_secutiry.config;
 
 import java.util.Arrays;
 
-import br.com.elvisassis.sbootexp_secutiry.domain.security.CustomAuthentication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
@@ -22,7 +21,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity(securedEnabled = true)
-public class SecuritConfig {
+public class SecurityConfig {
 
 
     @Bean
