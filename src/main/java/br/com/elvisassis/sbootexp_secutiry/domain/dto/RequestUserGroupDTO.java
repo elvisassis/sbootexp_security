@@ -1,1 +1,0 @@
-package br.com.elvisassis.sbootexp_secutiry.domain.dto;import lombok.AllArgsConstructor;import lombok.Data;import lombok.NoArgsConstructor;@Data@AllArgsConstructor@NoArgsConstructorpublic class RequestUserGroupDTO {    private String userId;    private String groupId;}
