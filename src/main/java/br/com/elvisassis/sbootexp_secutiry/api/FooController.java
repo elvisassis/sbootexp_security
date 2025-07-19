@@ -18,7 +18,7 @@ public class FooController {
     }
 
     @GetMapping("/private")
-    @SecurityRequirement(name = "jwtAuth")
+    @SecurityRequirement(name = "bearerAuth")
     public ResponseEntity<String> privateRoute(Authentication authentication) {
         System.out.println(authentication.getClass());
         return ResponseEntity.ok("Private route ok! Usuário conectado: " + authentication.getName());
@@ -26,7 +26,7 @@ public class FooController {
 
     @GetMapping("/admin")
     @PreAuthorize("hasRole('ADMIN')")
-    @SecurityRequirement(name = "jwtAuth")
+    @SecurityRequirement(name = "bearerAuth")
     public ResponseEntity<String> adminRoute() {
         return ResponseEntity.ok("Admin route ok!");
     }
