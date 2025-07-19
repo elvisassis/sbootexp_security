@@ -1,23 +1,25 @@
-
 # Spring Boot Experting Security 🔐
 
-Projeto de estudo avançado com foco em autenticação e autorização utilizando Spring Boot e Spring Security.
+Projeto de estudo avançado com foco em autenticação e autorização utilizando Spring Boot, Spring Security e JWT.
 
 ## ✨ Tecnologias Utilizadas
 
 - Java 21
 - Spring Boot
 - Spring Security
-- Swagger
+- Swagger (SpringDoc OpenAPI)
+- JWT (JSON Web Token)
 - Maven
 - Lombok
+- Flyway
+- MySQL
 
 ## 🎯 Objetivo
 
 Consolidar o conhecimento em segurança com Spring Boot através de:
 - Implementação de múltiplos `AuthenticationProvider`s
 - Criação de um sistema de autorização baseado em roles
-- Utilização de filtros personalizados para autenticação via header
+- Autenticação via JWT e via header customizado
 - Estruturação de entidades com relacionamento N:N entre usuários e grupos
 - Uso de `@PreAuthorize` para controle de acesso a endpoints
 
@@ -25,9 +27,7 @@ Consolidar o conhecimento em segurança com Spring Boot através de:
 
 - Cadastro de **Usuários**, **Grupos** e associação via **UserGroup**
 - Autenticação via múltiplas fontes:
-  - Banco de dados
-  - Dados mockados (senha master)
-  - Header customizado (`x-secret`)
+    - Banco de dados com JWT
 - Controle de acesso por permissões/roles
 - Endpoints públicos, privados e com autorização por grupo
 - Simulação de acessos a setores (como RH) com regras específicas
@@ -35,20 +35,25 @@ Consolidar o conhecimento em segurança com Spring Boot através de:
 ## 🔐 Segurança
 
 - Implementação personalizada de `AuthenticationProvider`
-- Classe `UserIdentify` centraliza os dados da identidade do usuário
-- Autenticação com `CustomAuthentication`
-- Filtro `CustomFilter` para simular autenticação via header
-- Controle de acesso via `@PreAuthorize` nos endpoints
+- Filtro `JwtAuthenticationFilter` para autenticação via JWT
+- Controle de acesso via `@PreAuthorize`, `hasRole`, `hasAuthority`
+- Swagger com suporte a autenticação JWT
+
+## 🗄️ Persistência
+
+- Banco de dados **MySQL**
+- Migrations gerenciadas com **Flyway**
 
 ## 🔍 Endpoints (exemplos)
 
-| Método | Rota             | Acesso                |
-|--------|------------------|-----------------------|
-| GET    | /api/public      | Livre                 |
-| GET    | /api/private     | Autenticado           |
-| GET    | /api/admin       | Role `ADMIN`          |
-| GET    | /api/rh/tecnico  | Role `TECNICO_RH` ou `GERENTE_RH` ou `ADMIN` |
-| GET    | /api/rh/gerente  | Role `GERENTE_RH` ou `ADMIN` |
+| Método | Rota             | Acesso                                                    |
+|--------|------------------|-----------------------------------------------------------|
+| GET    | /api/public      | Livre                                                     |
+| POST   | /api/auth/login  | Geração de JWT                                            |
+| GET    | /api/private     | Autenticado com token JWT                                 |
+| GET    | /api/admin       | Role `ADMIN`                                              |
+| GET    | /api/rh/tecnico  | Role `TECNICO_RH` ou `GERENTE_RH` ou `ADMIN`              |
+| GET    | /api/rh/gerente  | Role `GERENTE_RH` ou `ADMIN`                              |
 
 ## 🚀 Como executar
 
@@ -68,20 +73,21 @@ Consolidar o conhecimento em segurança com Spring Boot através de:
    http://localhost:8080/swagger-ui/index.html
    ```
 
-## ✅ Melhorias Futuras
+4. Autenticação no Swagger:
+    - Clique no cadeado (Authorize)
+    - Informe o token JWT para testar os endpoints protegidos
 
-- Validações de domínio (usuário duplicado, campos obrigatórios)
+## ✅ Melhorias Futuras
 - Operações de update/delete
-- Autenticação via OAuth2, OpenID Connect e JWT (Google, GitHub, LinkedIn)
+- Autenticação via OAuth2 e OpenID Connect (Google, GitHub, LinkedIn)
 - Testes automatizados com JUnit e Mockito
 - Uso de containers (Docker) e CI/CD
 
 ## 📚 Aprendizados
 
-- Criação de autenticação customizada com múltiplas fontes
 - Implementação de segurança baseada em roles com Spring Security
+- JWT com filtro customizado no Spring Security
 - Estruturação clara e escalável para projetos seguros
-- Como utilizar filtros personalizados no Spring Security
 
 ## 🧠 Autor
 
