@@ -1,8 +1,8 @@
 package br.com.elvisassis.sbootexp_secutiry.api;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +18,7 @@ public class FooController {
     }
 
     @GetMapping("/private")
+    @SecurityRequirement(name = "jwt")
     public ResponseEntity<String> privateRoute(Authentication authentication) {
         System.out.println(authentication.getClass());
         return ResponseEntity.ok("Private route ok! Usuário conectado: " + authentication.getName());
@@ -25,6 +26,7 @@ public class FooController {
 
     @GetMapping("/admin")
     @PreAuthorize("hasRole('ADMIN')")
+    @SecurityRequirement(name = "jwt")
     public ResponseEntity<String> adminRoute() {
         return ResponseEntity.ok("Admin route ok!");
     }

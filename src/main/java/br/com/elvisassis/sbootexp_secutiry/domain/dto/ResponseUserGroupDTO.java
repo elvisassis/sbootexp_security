@@ -1,1 +1,0 @@
-package br.com.elvisassis.sbootexp_secutiry.domain.dto;import br.com.elvisassis.sbootexp_secutiry.domain.entity.User;import lombok.AllArgsConstructor;import lombok.Data;import lombok.NoArgsConstructor;import java.util.List;@Data@AllArgsConstructor@NoArgsConstructorpublic class ResponseUserGroupDTO {    private UserDTO user;    private List<GroupDTO> groups;}

@@ -1,0 +1,1 @@
+package br.com.elvisassis.sbootexp_secutiry.domain.dto;import lombok.Data;import lombok.NoArgsConstructor;@Data@NoArgsConstructorpublic class AuthRequestDTO {    private String username;    private String fullname;    private String password;}
